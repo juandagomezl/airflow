@@ -13,6 +13,6 @@ with DAG(dag_id="Python_Operator",
          start_date=datetime(2024, 4, 18)) as dag:
 
     t1 = PythonOperator(task_id="task_6",
-                        python_callable=print_data)
+                        python_callable=print_data)()
 
     t1

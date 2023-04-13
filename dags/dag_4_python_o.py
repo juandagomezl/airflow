@@ -1,10 +1,20 @@
 from airflow import DAG
 from airflow.operators.python import PythonOperator
+from airflow.models import Variable
 from datetime import datetime
+
+
+var_ = Variable.get("data")
+# foo_json = Variable.get("foo_baz",
+#                         deserialize_json=True)
 
 
 def print_data():
     print("hola")
+
+
+def print_var(text):
+    print(text)
 
 
 with DAG(dag_id="Python_Operator",
@@ -15,4 +25,7 @@ with DAG(dag_id="Python_Operator",
     t1 = PythonOperator(task_id="task_6",
                         python_callable=print_data)
 
-    t1
+    t2 = PythonOperator(task_id="task_7",
+                        python_callable=print_var(var_))
+
+    t1 >> t2

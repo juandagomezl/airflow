@@ -13,8 +13,8 @@ def print_data():
     print("hola")
 
 
-def print_var(text):
-    print(text)
+def print_var():
+    print(var_)
 
 
 with DAG(dag_id="Python_Operator",
@@ -26,6 +26,6 @@ with DAG(dag_id="Python_Operator",
                         python_callable=print_data)
 
     t2 = PythonOperator(task_id="task_7",
-                        python_callable=print_var(var_))
+                        python_callable=print_var)
 
     t1 >> t2

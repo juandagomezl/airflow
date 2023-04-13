@@ -8,6 +8,6 @@ with DAG(dag_id="Bash_Operator",
          start_date=datetime(2023, 4, 17)) as dag:
 
     t1 = BashOperator(task_id="task_3",
-                      bash_command="echo 'Los quiero'")()
+                      bash_command="echo 'Los quiero'")
 
     t1
